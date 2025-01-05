@@ -1,7 +1,7 @@
 import { sign } from "crypto";
 import { test } from "../pages/base";
 
-test("Register User", async ({ homePage, loginPage, signUpPage, accountCreatedPage }) => {
+test("Register User", async ({ page, homePage, loginPage, signUpPage, accountCreatedPage, accountDeletedPage }) => {
     let userName: string = "babangjoe"
     
     await homePage.goto() // Launch browser & Navigate to url 'http://automationexercise.com'
@@ -11,6 +11,9 @@ test("Register User", async ({ homePage, loginPage, signUpPage, accountCreatedPa
     await loginPage.$newUserNameField.fill(userName)
     await loginPage.$newUserEmailField.fill("babangjoe@email.com")
     await loginPage.$newUserSignupButton.click()
+
+    await page.waitForTimeout(3000) // wait for 3 seconds, for testing purpose only
+
     await signUpPage.isSignUpLabelVisible() // Verify that 'ENTER ACCOUNT INFORMATION' is visible
     await signUpPage.$signUpTitleMrRadioButton.click() // Click radio button Mr.
     await signUpPage.$signUpPasswordField.fill("Test123!") // Input password
@@ -30,7 +33,21 @@ test("Register User", async ({ homePage, loginPage, signUpPage, accountCreatedPa
     await signUpPage.$signUpAddressInfoZipCodeField.fill("123456") // Input zip
     await signUpPage.$signUpAddressInfoMobileNumberField.fill("1234567890") // Input mobile number
     await signUpPage.$signUpCreateAccountButton.click()
+
+    await page.waitForTimeout(3000) // wait for 3 seconds, for testing purpose only
+
     await accountCreatedPage.isAccountCreatedLabelVisible() // Verify that 'Account Created!' is visible
     await accountCreatedPage.$accountCreatedContinueButton.click() // Click button Continue
+
+    await page.waitForTimeout(3000) // wait for 3 seconds, for testing purpose only
+
     await homePage.isLoggedInVisible(userName) // Verify that 'Logged in as username' is visible
+
+    await page.waitForTimeout(3000) // wait for 3 seconds, for testing purpose only
+
+    await homePage.$deleteAccountLink.click() // Click 'Delete Account' button 
+    await accountDeletedPage.isAccountDeletedLabelVisible() // Verify that 'ACCOUNT DELETED!' is visible
+    await accountDeletedPage.$accountDeletedContinueButton.click() // click 'Continue' button
+
+    await page.waitForTimeout(3000) // wait for 3 seconds, for testing purpose only
 })

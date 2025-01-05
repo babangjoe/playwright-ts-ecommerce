@@ -20,7 +20,7 @@ export class LoginPage{
         this.$newUserSignUpLabel = this.page.locator(".signup-form h2")
         this.$newUserNameField = this.page.locator("//input[@data-qa='signup-name']")
         this.$newUserEmailField = this.page.locator("//input[@data-qa='signup-email']")
-        this.$newUserSignupButton = this.page.locator("//input[@data-qa='signup-button']")
+        this.$newUserSignupButton = this.page.locator("//button[@data-qa='signup-button']")
 
         this.$loginLabel = this.page.locator(".login-form h2")
         this.$loginEmailField = this.page.locator("//input[@data-qa='login-email']")
