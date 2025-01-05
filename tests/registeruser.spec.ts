@@ -1,4 +1,3 @@
-import { sign } from "crypto";
 import { test } from "../pages/base";
 
 test("Register User", async ({ page, homePage, loginPage, signUpPage, accountCreatedPage, accountDeletedPage }) => {
