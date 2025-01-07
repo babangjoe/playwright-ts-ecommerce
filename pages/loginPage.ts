@@ -14,6 +14,7 @@ export class LoginPage{
     $loginEmailField: Locator
     $loginPasswordField: Locator
     $loginButton: Locator
+    $incorrectUsernameMsg: Locator
 
     constructor(page: Page){
         this.page = page
@@ -25,7 +26,36 @@ export class LoginPage{
         this.$loginLabel = this.page.locator(".login-form h2")
         this.$loginEmailField = this.page.locator("//input[@data-qa='login-email']")
         this.$loginPasswordField = this.page.locator("//input[@data-qa='login-password']")
-        this.$loginButton = this.page.locator("//input[@data-qa='login-button']")
+        this.$loginButton = this.page.locator("//button[@data-qa='login-button']")
+        this.$incorrectUsernameMsg = this.page.locator("//p[normalize-space()='Your email or password is incorrect!']")
+    }
+
+    /**
+     * fill in field Email Login
+     */
+    public async fillEmailLogin(email: string) {
+        await this.$loginEmailField.fill(email)
+    }
+
+    /**
+     * fill in field Password Login
+     */
+    public async fillPasswordLogin(pwd: string) {
+        await this.$loginPasswordField.fill(pwd)
+    }
+
+    /**
+     * fill in field Password Login
+     */
+    public async clickLoginButton() {
+        await this.$loginButton.click()
+    }
+
+    /**
+     * verify Incorrect Username Message is visible
+     */
+    public async isIncorrectUsernameMsgVisible() {
+        return expect(this.$incorrectUsernameMsg).toBeVisible()
     }
 
     /**
@@ -41,4 +71,5 @@ export class LoginPage{
     public async isLoginLabelVisible() {
         return expect(this.$loginLabel).toBeVisible()
     }
+
 }

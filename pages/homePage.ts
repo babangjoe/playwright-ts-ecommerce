@@ -11,6 +11,7 @@ export class HomePage {
     $cartLink: Locator
     $deleteAccountLink: Locator
     $loggedInLink: Locator
+    
 
     constructor(page: Page){
         this.page = page
@@ -36,11 +37,19 @@ export class HomePage {
         return expect(this.$homePageLink).toBeVisible()
     }
 
+
     /**
      * verify link button Login is visible
      */
     public async isLoginVisible() {
         return expect(this.$loginLink).toBeVisible()
+    }
+
+    /**
+     * Navigate to url 'http://automationexercise.com'
+     */
+    public async clickLoginLink() {
+        await this.$loginLink.click()
     }
 
     /**

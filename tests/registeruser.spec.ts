@@ -5,7 +5,7 @@ test("Register User", async ({ page, homePage, loginPage, signUpPage, accountCre
     
     await homePage.goto() // Launch browser & Navigate to url 'http://automationexercise.com'
     await homePage.isLoginVisible() // Verify that home page is visible successfully
-    await homePage.$loginLink.click() // Click on 'Signup / Login' button
+    await homePage.clickLoginLink() // Click on 'Signup / Login' button
     await loginPage.isNewUserLabelVisible() // Verify 'New User Signup!' is visible
     await loginPage.$newUserNameField.fill(userName)
     await loginPage.$newUserEmailField.fill("babangjoe@email.com")
