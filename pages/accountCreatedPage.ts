@@ -19,4 +19,11 @@ export class AccountCreatedPage {
     public async isAccountCreatedLabelVisible() {
         return expect(this.$accountCreatedLabel).toBeVisible()
     }
+
+    /**
+     * click Continue Button
+     */
+    public async clickContinueButton() {
+        await this.$accountCreatedContinueButton.click()
+    }
 }

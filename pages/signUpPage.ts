@@ -56,4 +56,102 @@ export class SignUpPage {
     public async isSignUpLabelVisible() {
         return expect(this.$signUpLabel).toBeVisible()
     }
+
+    /**
+     * click radio button Mr
+     */
+    public async clickRadioButtonMr() {
+        await this.$signUpTitleMrRadioButton.click()
+    }
+
+    /**
+     * fill in field Password
+     */
+    public async fillPassword(pwd: string) {
+        await this.$signUpPasswordField.fill(pwd)
+    }
+
+    /**
+     * fill in check Newsletter check box
+     */
+    public async checkNewsletterCheckBox() {
+        await this.$signUpNewsletterCheckBox.check()
+    }
+
+    /**
+     * fill in check Newsletter check box
+     */
+    public async checkSpecialOffersCheckBox() {
+        await this.$signUpSpecialOffersCheckBox.check()
+    }
+
+    /**
+     * fill in field First Name
+     */
+    public async fillFirstName(firstname: string) {
+        await this.$signUpAddressInfoFirstNameField.fill(firstname)
+    }
+
+    /**
+     * fill in field Last Name
+     */
+    public async fillLastName(lastname: string) {
+        await this.$signUpAddressInfoLastNameField.fill(lastname)
+    }
+
+    /**
+     * fill in field Company
+     */
+    public async fillCompany(company: string) {
+        await this.$signUpAddressInfoCompanyField.fill(company)
+    }
+
+    /**
+     * fill in field Address 1
+     */
+    public async fillAddress1(address: string) {
+        await this.$signUpAddressInfoAddress1Field.fill(address)
+    }
+
+    /**
+     * fill in field Address 2
+     */
+    public async fillAddress2(address: string) {
+        await this.$signUpAddressInfoAddress2Field.fill(address)
+    }
+    
+    /**
+     * fill in field State
+     */
+    public async fillState(state: string) {
+        await this.$signUpAddressInfoStateField.fill(state)
+    }
+
+    /**
+     * fill in field City
+     */
+    public async fillCity(city: string) {
+        await this.$signUpAddressInfoCityField.fill(city)
+    }
+
+    /**
+     * fill in field ZIP Code
+     */
+    public async fillZipCode(zipcode: string) {
+        await this.$signUpAddressInfoZipCodeField.fill(zipcode)
+    }
+
+    /**
+     * fill in field Mobile Number
+     */
+    public async fillMobileNumber(mobilenumber: string) {
+        await this.$signUpAddressInfoMobileNumberField.fill(mobilenumber)
+    }
+
+    /**
+     * click button Create Account
+     */
+    public async clickCreateAccountBtn() {
+        await this.$signUpCreateAccountButton.click()
+    }
 }

@@ -1,5 +1,5 @@
 import { test } from "../pages/base";
-import { loginCredentials } from "../function/loginFunction"
+import { loginCredentials } from "../function/fn_Login"
 
 test('Login with Valid Credential', async ({ homePage, loginPage }) => {
     const email = "bangjoeee@email.com"

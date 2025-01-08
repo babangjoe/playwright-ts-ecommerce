@@ -19,4 +19,11 @@ export class AccountDeletedPage{
     public async isAccountDeletedLabelVisible() {
         return expect(this.$accountDeletedLabel).toBeVisible()
     }
+
+    /**
+     * click button Continue
+     */
+    public async clickContinue() {
+        await this.$accountDeletedContinueButton.click()
+    }
 }

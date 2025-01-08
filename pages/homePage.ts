@@ -46,7 +46,7 @@ export class HomePage {
     }
 
     /**
-     * Navigate to url 'http://automationexercise.com'
+     * click link Login
      */
     public async clickLoginLink() {
         await this.$loginLink.click()
@@ -71,5 +71,12 @@ export class HomePage {
      */
     public async isLoggedInVisible(username: string) {
         return expect(this.$loggedInLink).toContainText(`Logged in as ${username}`)
+    }
+
+    /**
+     * click link Delete Account
+     */
+    public async clickDeleteAccountLink() {
+        await this.$deleteAccountLink.click()
     }
 }
