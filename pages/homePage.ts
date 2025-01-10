@@ -11,7 +11,7 @@ export class HomePage {
     $cartLink: Locator
     $deleteAccountLink: Locator
     $loggedInLink: Locator
-    
+    $loggedOutLink: Locator
 
     constructor(page: Page){
         this.page = page
@@ -21,6 +21,7 @@ export class HomePage {
         this.$cartLink = this.page.locator("a[href='/view_cart']")
         this.$deleteAccountLink = this.page.locator("a[href='/delete_account']")
         this.$loggedInLink = this.page.locator("a:has-text('Logged in as')")
+        this.$loggedOutLink = this.page.locator("a[href='/logout']")
     }
 
     /**
@@ -50,6 +51,20 @@ export class HomePage {
      */
     public async clickLoginLink() {
         await this.$loginLink.click()
+    }
+
+    /**
+     * verify link button Logout is visible
+     */
+    public async isLogoutVisible() {
+        return expect(this.$loggedOutLink).toBeVisible()
+    }
+
+    /**
+     * click link button Logout
+     */
+    public async clickLogoutLink() {
+        await this.$loggedOutLink.click()
     }
 
     /**

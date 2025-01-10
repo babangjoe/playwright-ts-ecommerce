@@ -8,6 +8,7 @@ export class LoginPage{
     $newUserNameField: Locator
     $newUserEmailField: Locator
     $newUserSignupButton: Locator
+    $emailAlreadyExistMsg: Locator
 
     //Login
     $loginLabel: Locator
@@ -22,12 +23,20 @@ export class LoginPage{
         this.$newUserNameField = this.page.locator("//input[@data-qa='signup-name']")
         this.$newUserEmailField = this.page.locator("//input[@data-qa='signup-email']")
         this.$newUserSignupButton = this.page.locator("//button[@data-qa='signup-button']")
+        this.$emailAlreadyExistMsg = this.page.locator("//p[normalize-space()='Email Address already exist!']")
 
         this.$loginLabel = this.page.locator(".login-form h2")
         this.$loginEmailField = this.page.locator("//input[@data-qa='login-email']")
         this.$loginPasswordField = this.page.locator("//input[@data-qa='login-password']")
         this.$loginButton = this.page.locator("//button[@data-qa='login-button']")
         this.$incorrectUsernameMsg = this.page.locator("//p[normalize-space()='Your email or password is incorrect!']")
+    }
+
+    /**
+     * verify Email Address Already Exist Message is visible
+     */
+    public async isEmailAlreadyExistMsgVisible() {
+        return expect(this.$emailAlreadyExistMsg).toBeVisible()
     }
 
     /**
